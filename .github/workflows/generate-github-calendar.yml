@@ -20,9 +20,7 @@ jobs:
 
       - name: Run
         working-directory: github-calendar-generator
-        run: |
-          node index.js
-          ls -la
+        run: node index.js
 
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v1
@@ -33,5 +31,5 @@ jobs:
 
       - name: S3 sync
         working-directory: github-calendar-generator/dist
-        run: aws s3 sync . s3://github-calendar --delete --grants read=uri=http://acs.amazonaws.com/groups/global/AllUsers
+        run: aws s3 sync . s3://github-calendar --delete --grants read=uri=http://acs.amazonaws.com/groups/global/AllUsers --exclude ".gitkeep"
 
