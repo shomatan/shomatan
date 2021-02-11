@@ -11,7 +11,7 @@ const puppeteer = require('puppeteer');
     const data = await page.$eval('.calendar', item => {
       return item.innerHTML;
     });
-    console.dir(data);
+    console.log(data);
 
     await browser.close();
 })();

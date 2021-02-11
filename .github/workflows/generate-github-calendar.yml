@@ -1,4 +1,4 @@
-name: RUN puppeteer
+name: Generate GitHub Calendar source
 
 on: [push]
 
