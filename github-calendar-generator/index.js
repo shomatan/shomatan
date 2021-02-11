@@ -1,4 +1,5 @@
 const puppeteer = require('puppeteer');
+const fs = require('fs');
 
 (async () => {
     const URL = `https://shomatan.github.io/shomatan/github-calendar-generator/`;
@@ -11,7 +12,8 @@ const puppeteer = require('puppeteer');
     const data = await page.$eval('.calendar', item => {
       return item.innerHTML;
     });
-    console.log(data);
+
+    fs.writeFileSync('dist/calendar.html', data);
 
     await browser.close();
 })();
